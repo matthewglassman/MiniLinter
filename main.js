@@ -6,8 +6,7 @@ let unnecessaryWords = ['extremely', 'literally', 'actually' ];
 
 var storyWords = story.split(' ');
 console.log(storyWords);
+
+//Log Number of words in the string.
 console.log(storyWords.length);
 
-// var wordCount = storyWords.forEach(function(word){
-//     return story
-// })
