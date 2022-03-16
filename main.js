@@ -10,3 +10,8 @@ console.log(storyWords);
 //Log Number of words in the string.
 console.log(storyWords.length);
 
+var betterWords = storyWords.filter(function(word){
+    return !overusedWords.includes(word);
+});
+
+console.log(betterWords);
