@@ -12,7 +12,7 @@ console.log(storyWords.length);
 
 //Look for words that are in the storyWords array and if there are any that are NOT also in overusedWords array and put them in the new betterWords array.
 var betterWords = storyWords.filter(function(word){
-    return !overusedWords.includes(word);
+    return !unnecessaryWords.includes(word);
 });
 
 console.log(betterWords);
