@@ -6,11 +6,6 @@ let unnecessaryWords = ['extremely', 'literally', 'actually' ];
 
 var storyWords = story.split(' ');
 
-//console.log(storyWords);
-
-//Log Number of words in the string.
-//console.log(storyWords.length);
-
 //Look for words that are in the storyWords array and if there are any that are NOT also in overusedWords array and put them in the new betterWords array.
 var betterWords = storyWords.filter(function(word){
     return !unnecessaryWords.includes(word);
@@ -18,22 +13,36 @@ var betterWords = storyWords.filter(function(word){
 
 //console.log(betterWords);
 
-// var countoverusedWords = overusedWords.reduce(function(wordStore, wordBeingChecked){
-//     //Loop over the storyWords array. If the words in overUsedWords (wordBeingChecked) exists in storyWords, add it to the new object (wordStore).  If it already exists in wordStore object than increment it.
-//     for (let i = 0; i < betterWords.length; i++) {
-//         const word = betterWords[i];
-//         if (word === wordBeingChecked){
-//             wordStore[wordBeingChecked] = (wordStore[wordBeingChecked] || 0 ) + 1;            
-//         }
-//     } 
-//     return wordStore
-// },{})
+var countoverusedWords = overusedWords.reduce(function(wordStore, wordBeingChecked){
+    //Loop over the storyWords array. If the words in overUsedWords (wordBeingChecked) exists in storyWords, add it to the new object (wordStore).  If it already exists in wordStore object than increment it.
+    for (let i = 0; i < betterWords.length; i++) {
+        const word = betterWords[i];
+        if (word === wordBeingChecked){
+            wordStore[wordBeingChecked] = (wordStore[wordBeingChecked] || 0 ) + 1;            
+        }
+    } 
+    return wordStore
+},{})
 
-//console.log(countoverusedWords);
+
+
+//Find the number of sentences in the story.
 let sentenceCounter = 0;
 for (let i = 0; i < storyWords.length; i++) {
     const word = storyWords[i];
     if (word.includes(".") || word.includes("!")) {
         sentenceCounter += 1;
     }
-} console.log(sentenceCounter);
+} 
+
+//Log Number of words in the string.
+console.log(`This story has ${storyWords.length} words initially and ${betterWords.length} with unnecessary words removed. \n`);
+
+//Log the number of sentences in the story.
+console.log(`There are ${sentenceCounter} sentences in the story.\n`);
+
+//Log the number of times each overused word appears.
+console.log("Here is a count of some words that were used constantly: ", countoverusedWords, "\n");
+
+// Join the split story back together.
+console.log(betterWords.join(' '));
