@@ -18,17 +18,22 @@ var betterWords = storyWords.filter(function(word){
 
 //console.log(betterWords);
 
-var countoverusedWords = overusedWords.reduce(function(wordStore, wordBeingChecked){
-    //Loop over the storyWords array. If the words in overUsedWords (wordBeingChecked) exists in storyWords, add it to the new object (wordStore).  If it already exists in wordStore object than increment it.
-    for (let i = 0; i < betterWords.length; i++) {
-        const word = betterWords[i];
-        if (word === wordBeingChecked){
-            wordStore[wordBeingChecked] = (wordStore[wordBeingChecked] || 0 ) + 1
-            //return wordStore
-            
-        }
-    } 
-    return wordStore
-},{})
+// var countoverusedWords = overusedWords.reduce(function(wordStore, wordBeingChecked){
+//     //Loop over the storyWords array. If the words in overUsedWords (wordBeingChecked) exists in storyWords, add it to the new object (wordStore).  If it already exists in wordStore object than increment it.
+//     for (let i = 0; i < betterWords.length; i++) {
+//         const word = betterWords[i];
+//         if (word === wordBeingChecked){
+//             wordStore[wordBeingChecked] = (wordStore[wordBeingChecked] || 0 ) + 1;            
+//         }
+//     } 
+//     return wordStore
+// },{})
 
-console.log(countoverusedWords);
+//console.log(countoverusedWords);
+let sentenceCounter = 0;
+for (let i = 0; i < storyWords.length; i++) {
+    const word = storyWords[i];
+    if (word.includes(".") || word.includes("!")) {
+        sentenceCounter += 1;
+    }
+} console.log(sentenceCounter);
