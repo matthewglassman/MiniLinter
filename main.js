@@ -5,14 +5,30 @@ let overusedWords = ['really', 'very', 'basically'];
 let unnecessaryWords = ['extremely', 'literally', 'actually' ];
 
 var storyWords = story.split(' ');
-console.log(storyWords);
+
+//console.log(storyWords);
 
 //Log Number of words in the string.
-console.log(storyWords.length);
+//console.log(storyWords.length);
 
 //Look for words that are in the storyWords array and if there are any that are NOT also in overusedWords array and put them in the new betterWords array.
 var betterWords = storyWords.filter(function(word){
     return !unnecessaryWords.includes(word);
 });
 
-console.log(betterWords);
+//console.log(betterWords);
+
+var countoverusedWords = overusedWords.reduce(function(wordStore, wordBeingChecked){
+    //Loop over the storyWords array. If the words in overUsedWords (wordBeingChecked) exists in storyWords, add it to the new object (wordStore).  If it already exists in wordStore object than increment it.
+    for (let i = 0; i < betterWords.length; i++) {
+        const word = betterWords[i];
+        if (word === wordBeingChecked){
+            wordStore[wordBeingChecked] = (wordStore[wordBeingChecked] || 0 ) + 1
+            //return wordStore
+            
+        }
+    } 
+    return wordStore
+},{})
+
+console.log(countoverusedWords);
